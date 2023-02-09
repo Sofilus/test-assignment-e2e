@@ -5,8 +5,9 @@ import axios from "axios";
 export const getData = async (searchText: string): Promise<IMovie[]> => {
   return axios
     .get<IOmdbResponse>("http://omdbapi.com/?apikey=416ed51a&s=" + searchText)
-    .then((data) => {
+    .then((data) => {console.log(data);
       return data.data.Search;
+      
     })
     .catch(() => {
       return [];
